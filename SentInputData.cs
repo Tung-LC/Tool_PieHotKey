@@ -77,48 +77,51 @@ namespace Tool_PieHotKey
         {
 
             int InputKeyLength = InputKey.Length;
-
             if (InputKey[0] == Keys.None && InputKey[1] == Keys.None && InputKey[2] == Keys.None) { return; }
             INPUT[] inputs = new INPUT[InputKeyLength * 2];
-            if (IsInputByKeyBoard)//模擬鍵盤輸入
+            try
             {
-                for (int i = 0; i < InputKeyLength; i++)
+                if (IsInputByKeyBoard)//模擬鍵盤輸入
                 {
-                    inputs[i] = new INPUT()
+                    for (int i = 0; i < InputKeyLength; i++)
                     {
-                        type = (uint)InputType.Keyboard,
-                        union = new InputUnion()
+                        inputs[i] = new INPUT()
                         {
-                            ki = new KEYBDINPUT()
+                            type = (uint)InputType.Keyboard,
+                            union = new InputUnion()
                             {
-                                wVk = (ushort)InputKey[i],
-                                //(ushort)Convert.ToInt16(InputKey[0].ToString("X"),16)
-                                //wScan = (ScanCodeShort)System.Enum.Parse(typeof(ScanCodeShort), InputKeyStr[i]),
-                                dwFlags = KeyEventF.KeyDown,
-                                dwExtraInfo = GetMessageExtraInfo()
+                                ki = new KEYBDINPUT()
+                                {
+                                    wVk = (ushort)InputKey[i],
+                                    //(ushort)Convert.ToInt16(InputKey[0].ToString("X"),16)
+                                    //wScan = (ScanCodeShort)System.Enum.Parse(typeof(ScanCodeShort), InputKeyStr[i]),
+                                    dwFlags = KeyEventF.KeyDown,
+                                    dwExtraInfo = GetMessageExtraInfo()
+                                }
                             }
-                        }
-                    };
-                }
-                for (int i = InputKeyLength; i < InputKeyLength * 2; i++)
-                {
-                    inputs[i] = new INPUT()
+                        };
+                    }
+                    for (int i = InputKeyLength; i < InputKeyLength * 2; i++)
                     {
-                        type = (uint)InputType.Keyboard,
-                        union = new InputUnion()
+                        inputs[i] = new INPUT()
                         {
-                            ki = new KEYBDINPUT()
+                            type = (uint)InputType.Keyboard,
+                            union = new InputUnion()
                             {
-                                //wVk = (VirtualKeyShort)System.Enum.Parse(typeof(VirtualKeyShort), InputKeyStr[i - InputKeyLength]),
-                                wVk = (ushort)InputKey[i - InputKeyLength],
-                                //wScan = (ScanCodeShort)System.Enum.Parse(typeof(ScanCodeShort), InputKeyStr[i - InputKeyLength]),
-                                dwFlags = KeyEventF.KeyUp,
-                                dwExtraInfo = GetMessageExtraInfo()
+                                ki = new KEYBDINPUT()
+                                {
+                                    //wVk = (VirtualKeyShort)System.Enum.Parse(typeof(VirtualKeyShort), InputKeyStr[i - InputKeyLength]),
+                                    wVk = (ushort)InputKey[i - InputKeyLength],
+                                    //wScan = (ScanCodeShort)System.Enum.Parse(typeof(ScanCodeShort), InputKeyStr[i - InputKeyLength]),
+                                    dwFlags = KeyEventF.KeyUp,
+                                    dwExtraInfo = GetMessageExtraInfo()
+                                }
                             }
-                        }
-                    };
+                        };
+                    }
                 }
             }
+            catch (Exception) { MessageBox.Show("設定按鍵輸出失敗"); return; }
             Debug.WriteLine("進入SentMsg");
             SetForegroundWindow(Hwnd);
             SendInput((uint)inputs.Length, inputs, INPUT.size);

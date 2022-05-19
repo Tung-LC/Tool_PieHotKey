@@ -221,9 +221,15 @@ namespace Tool_PieHotKey
                     fEatKeyStroke = eventArguments.Handled;
                 }
             }
-
-            return fEatKeyStroke ? (IntPtr)1 : CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
-
+            try
+            {
+                return fEatKeyStroke ? (IntPtr)1 : CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("GC collection error");
+                return (IntPtr)1;
+            }
 
         }
     }

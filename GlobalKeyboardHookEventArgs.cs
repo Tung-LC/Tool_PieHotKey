@@ -228,7 +228,7 @@ namespace Tool_PieHotKey
             }
             catch (Exception)
             {
-                Debug.WriteLine("GC collection error");
+                MessageBox.Show("GC collection error");
                 return (IntPtr)1;
             }
             

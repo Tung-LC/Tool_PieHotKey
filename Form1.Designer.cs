@@ -621,7 +621,7 @@
             this.TBX_Local_ActiveBtn2.Location = new System.Drawing.Point(172, 365);
             this.TBX_Local_ActiveBtn2.Name = "TBX_Local_ActiveBtn2";
             this.TBX_Local_ActiveBtn2.Size = new System.Drawing.Size(88, 29);
-            this.TBX_Local_ActiveBtn2.TabIndex = 76;
+            this.TBX_Local_ActiveBtn2.TabIndex = 70;
             this.TBX_Local_ActiveBtn2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TBX_MouseClick_ClearText);
             this.TBX_Local_ActiveBtn2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TBX_MouseDown_ShowMouseBtnCode);
             // 
@@ -631,7 +631,7 @@
             this.TBX_Local_ActiveBtn1.Location = new System.Drawing.Point(172, 320);
             this.TBX_Local_ActiveBtn1.Name = "TBX_Local_ActiveBtn1";
             this.TBX_Local_ActiveBtn1.Size = new System.Drawing.Size(88, 29);
-            this.TBX_Local_ActiveBtn1.TabIndex = 75;
+            this.TBX_Local_ActiveBtn1.TabIndex = 69;
             this.TBX_Local_ActiveBtn1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TBX_MouseClick_ClearText);
             this.TBX_Local_ActiveBtn1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TBX_MouseDown_ShowMouseBtnCode);
             // 
@@ -770,7 +770,7 @@
             this.TBX_Local_Btn3.Location = new System.Drawing.Point(637, 249);
             this.TBX_Local_Btn3.Name = "TBX_Local_Btn3";
             this.TBX_Local_Btn3.Size = new System.Drawing.Size(88, 29);
-            this.TBX_Local_Btn3.TabIndex = 80;
+            this.TBX_Local_Btn3.TabIndex = 73;
             this.TBX_Local_Btn3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TBX_KeyUp_ShowKeyCode);
             this.TBX_Local_Btn3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TBX_MouseClick_ClearText);
             // 
