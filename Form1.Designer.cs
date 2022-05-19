@@ -103,10 +103,17 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.CKB_ShowChildrenHandle = new System.Windows.Forms.CheckBox();
+            this.Btn_SetBtnAssist = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.RDBtn_LocalSetting = new System.Windows.Forms.RadioButton();
+            this.RDBtn_GlobalSetting = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
             this.GBX_GlobalActingByMouseOrKeyBoard.SuspendLayout();
             this.GBX_LocalActingByMouseOrKeyBoard.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -177,7 +184,7 @@
             // 
             this.LV_Global_SetupShown.Font = new System.Drawing.Font("微軟正黑體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LV_Global_SetupShown.HideSelection = false;
-            this.LV_Global_SetupShown.Location = new System.Drawing.Point(463, 90);
+            this.LV_Global_SetupShown.Location = new System.Drawing.Point(480, 90);
             this.LV_Global_SetupShown.Name = "LV_Global_SetupShown";
             this.LV_Global_SetupShown.Size = new System.Drawing.Size(300, 106);
             this.LV_Global_SetupShown.TabIndex = 50;
@@ -239,7 +246,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label18.Location = new System.Drawing.Point(352, 90);
+            this.label18.Location = new System.Drawing.Point(369, 90);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(106, 24);
             this.label18.TabIndex = 41;
@@ -376,7 +383,7 @@
             // 
             this.Btn_SaveData.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Btn_SaveData.ForeColor = System.Drawing.Color.Lime;
-            this.Btn_SaveData.Location = new System.Drawing.Point(463, 400);
+            this.Btn_SaveData.Location = new System.Drawing.Point(480, 400);
             this.Btn_SaveData.Name = "Btn_SaveData";
             this.Btn_SaveData.Size = new System.Drawing.Size(113, 42);
             this.Btn_SaveData.TabIndex = 50;
@@ -389,7 +396,7 @@
             this.Btn_StartHotKey.Enabled = false;
             this.Btn_StartHotKey.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Btn_StartHotKey.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.Btn_StartHotKey.Location = new System.Drawing.Point(611, 400);
+            this.Btn_StartHotKey.Location = new System.Drawing.Point(628, 400);
             this.Btn_StartHotKey.Name = "Btn_StartHotKey";
             this.Btn_StartHotKey.Size = new System.Drawing.Size(113, 42);
             this.Btn_StartHotKey.TabIndex = 51;
@@ -586,6 +593,7 @@
             this.CBBX_LocalHandle.Name = "CBBX_LocalHandle";
             this.CBBX_LocalHandle.Size = new System.Drawing.Size(258, 25);
             this.CBBX_LocalHandle.TabIndex = 52;
+            this.CBBX_LocalHandle.SelectedIndexChanged += new System.EventHandler(this.CBBX_LocalHandle_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -747,7 +755,7 @@
             // 
             this.Btn_Stop.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Btn_Stop.ForeColor = System.Drawing.Color.Red;
-            this.Btn_Stop.Location = new System.Drawing.Point(464, 401);
+            this.Btn_Stop.Location = new System.Drawing.Point(481, 401);
             this.Btn_Stop.Name = "Btn_Stop";
             this.Btn_Stop.Size = new System.Drawing.Size(113, 42);
             this.Btn_Stop.TabIndex = 78;
@@ -779,9 +787,9 @@
             // Btn_SaveLocalDataInfo
             // 
             this.Btn_SaveLocalDataInfo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Btn_SaveLocalDataInfo.Location = new System.Drawing.Point(406, 395);
+            this.Btn_SaveLocalDataInfo.Location = new System.Drawing.Point(341, 395);
             this.Btn_SaveLocalDataInfo.Name = "Btn_SaveLocalDataInfo";
-            this.Btn_SaveLocalDataInfo.Size = new System.Drawing.Size(51, 30);
+            this.Btn_SaveLocalDataInfo.Size = new System.Drawing.Size(69, 30);
             this.Btn_SaveLocalDataInfo.TabIndex = 81;
             this.Btn_SaveLocalDataInfo.Text = "記錄";
             this.Btn_SaveLocalDataInfo.UseVisualStyleBackColor = true;
@@ -791,7 +799,7 @@
             // 
             this.LV_Local_SetupShown.Font = new System.Drawing.Font("微軟正黑體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LV_Local_SetupShown.HideSelection = false;
-            this.LV_Local_SetupShown.Location = new System.Drawing.Point(464, 288);
+            this.LV_Local_SetupShown.Location = new System.Drawing.Point(481, 288);
             this.LV_Local_SetupShown.Name = "LV_Local_SetupShown";
             this.LV_Local_SetupShown.Size = new System.Drawing.Size(300, 106);
             this.LV_Local_SetupShown.TabIndex = 82;
@@ -802,9 +810,9 @@
             // 
             this.LV_Local_HandleName.Font = new System.Drawing.Font("微軟正黑體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LV_Local_HandleName.HideSelection = false;
-            this.LV_Local_HandleName.Location = new System.Drawing.Point(356, 288);
+            this.LV_Local_HandleName.Location = new System.Drawing.Point(341, 288);
             this.LV_Local_HandleName.Name = "LV_Local_HandleName";
-            this.LV_Local_HandleName.Size = new System.Drawing.Size(102, 106);
+            this.LV_Local_HandleName.Size = new System.Drawing.Size(134, 106);
             this.LV_Local_HandleName.TabIndex = 83;
             this.LV_Local_HandleName.UseCompatibleStateImageBehavior = false;
             this.LV_Local_HandleName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView_LocalHandleName_DoubleClick);
@@ -815,7 +823,7 @@
             this.label24.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label24.Location = new System.Drawing.Point(1, 201);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(800, 2);
+            this.label24.Size = new System.Drawing.Size(794, 2);
             this.label24.TabIndex = 84;
             // 
             // Btn_LocalHandleNameRefresh
@@ -832,9 +840,9 @@
             // Btn_DeleteLocalDataInfo
             // 
             this.Btn_DeleteLocalDataInfo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Btn_DeleteLocalDataInfo.Location = new System.Drawing.Point(356, 395);
+            this.Btn_DeleteLocalDataInfo.Location = new System.Drawing.Point(406, 395);
             this.Btn_DeleteLocalDataInfo.Name = "Btn_DeleteLocalDataInfo";
-            this.Btn_DeleteLocalDataInfo.Size = new System.Drawing.Size(51, 30);
+            this.Btn_DeleteLocalDataInfo.Size = new System.Drawing.Size(69, 30);
             this.Btn_DeleteLocalDataInfo.TabIndex = 86;
             this.Btn_DeleteLocalDataInfo.Text = "刪除";
             this.Btn_DeleteLocalDataInfo.UseVisualStyleBackColor = true;
@@ -844,25 +852,25 @@
             // 
             this.label25.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label25.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label25.Location = new System.Drawing.Point(355, 284);
+            this.label25.Location = new System.Drawing.Point(339, 284);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(105, 1);
+            this.label25.Size = new System.Drawing.Size(137, 1);
             this.label25.TabIndex = 87;
             // 
             // label26
             // 
             this.label26.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label26.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label26.Location = new System.Drawing.Point(354, 427);
+            this.label26.Location = new System.Drawing.Point(339, 427);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(105, 1);
+            this.label26.Size = new System.Drawing.Size(137, 1);
             this.label26.TabIndex = 88;
             // 
             // label27
             // 
             this.label27.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label27.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label27.Location = new System.Drawing.Point(354, 284);
+            this.label27.Location = new System.Drawing.Point(338, 284);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(1, 144);
             this.label27.TabIndex = 89;
@@ -871,7 +879,7 @@
             // 
             this.label28.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label28.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label28.Location = new System.Drawing.Point(459, 284);
+            this.label28.Location = new System.Drawing.Point(476, 284);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(1, 144);
             this.label28.TabIndex = 90;
@@ -886,11 +894,77 @@
             this.CKB_ShowChildrenHandle.TabIndex = 91;
             this.CKB_ShowChildrenHandle.UseVisualStyleBackColor = true;
             // 
+            // Btn_SetBtnAssist
+            // 
+            this.Btn_SetBtnAssist.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Btn_SetBtnAssist.ForeColor = System.Drawing.Color.MediumOrchid;
+            this.Btn_SetBtnAssist.Location = new System.Drawing.Point(637, 9);
+            this.Btn_SetBtnAssist.Name = "Btn_SetBtnAssist";
+            this.Btn_SetBtnAssist.Size = new System.Drawing.Size(148, 31);
+            this.Btn_SetBtnAssist.TabIndex = 92;
+            this.Btn_SetBtnAssist.Text = "按鈕設定輔助視窗";
+            this.Btn_SetBtnAssist.UseVisualStyleBackColor = true;
+            this.Btn_SetBtnAssist.Click += new System.EventHandler(this.Btn_SetBtnAssist_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.RDBtn_LocalSetting);
+            this.groupBox3.Controls.Add(this.RDBtn_GlobalSetting);
+            this.groupBox3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox3.Location = new System.Drawing.Point(808, 9);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(207, 65);
+            this.groupBox3.TabIndex = 93;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Global Or Local";
+            // 
+            // RDBtn_LocalSetting
+            // 
+            this.RDBtn_LocalSetting.AutoSize = true;
+            this.RDBtn_LocalSetting.Location = new System.Drawing.Point(118, 32);
+            this.RDBtn_LocalSetting.Name = "RDBtn_LocalSetting";
+            this.RDBtn_LocalSetting.Size = new System.Drawing.Size(76, 28);
+            this.RDBtn_LocalSetting.TabIndex = 2;
+            this.RDBtn_LocalSetting.Text = "Local";
+            this.RDBtn_LocalSetting.UseVisualStyleBackColor = true;
+            this.RDBtn_LocalSetting.CheckedChanged += new System.EventHandler(this.RDBtn_LocalSetting_CheckedChanged);
+            // 
+            // RDBtn_GlobalSetting
+            // 
+            this.RDBtn_GlobalSetting.AutoSize = true;
+            this.RDBtn_GlobalSetting.Checked = true;
+            this.RDBtn_GlobalSetting.Location = new System.Drawing.Point(6, 32);
+            this.RDBtn_GlobalSetting.Name = "RDBtn_GlobalSetting";
+            this.RDBtn_GlobalSetting.Size = new System.Drawing.Size(87, 28);
+            this.RDBtn_GlobalSetting.TabIndex = 0;
+            this.RDBtn_GlobalSetting.TabStop = true;
+            this.RDBtn_GlobalSetting.Text = "Global";
+            this.RDBtn_GlobalSetting.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Location = new System.Drawing.Point(803, 106);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(311, 310);
+            this.panel1.TabIndex = 94;
+            // 
+            // label29
+            // 
+            this.label29.BackColor = System.Drawing.Color.MistyRose;
+            this.label29.Location = new System.Drawing.Point(798, 101);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(320, 320);
+            this.label29.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1139, 450);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.Btn_SetBtnAssist);
             this.Controls.Add(this.CKB_ShowChildrenHandle);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
@@ -956,6 +1030,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label22);
+            this.Controls.Add(this.label29);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -967,6 +1042,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -986,7 +1063,7 @@
         private System.Windows.Forms.GroupBox GBX_GlobalActingByMouseOrKeyBoard;
         private System.Windows.Forms.RadioButton RDOBtnGlobal_ByKeyBoard;
         private System.Windows.Forms.RadioButton RDOBtnGlobal_ByMouseBtn;
-        private System.Windows.Forms.TextBox TBX_GlobalBtnN;
+        internal System.Windows.Forms.TextBox TBX_GlobalBtnN;
         private System.Windows.Forms.Button Btn_GlobalConfirm;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label14;
@@ -1012,7 +1089,7 @@
         private System.Windows.Forms.GroupBox GBX_LocalActingByMouseOrKeyBoard;
         private System.Windows.Forms.RadioButton RDOBtnLocal_ByKeyBoard;
         private System.Windows.Forms.RadioButton RDOBtnLocal_ByMouseBtn;
-        private System.Windows.Forms.TextBox TBX_LocalBtnN;
+        internal System.Windows.Forms.TextBox TBX_LocalBtnN;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox CBBX_LocalHandle;
         private System.Windows.Forms.Label label7;
@@ -1048,6 +1125,12 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.CheckBox CKB_ShowChildrenHandle;
+        private System.Windows.Forms.Button Btn_SetBtnAssist;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton RDBtn_LocalSetting;
+        private System.Windows.Forms.RadioButton RDBtn_GlobalSetting;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label29;
     }
 }
 

@@ -11,6 +11,7 @@ namespace Tool_PieHotKey
 {
     public class PreCreatePieButton
     {
+        public PreCreatePieButton() { }
         public Button[] ButtonsList { get; private set; }
         public Region[] RegionList { get; private set; }
         public PreCreatePieButton(int MaxBtnN, int[] InOutR)
@@ -44,7 +45,31 @@ namespace Tool_PieHotKey
             }
             return BtnList;
         }
+        public Button[] CreateButton2(int MaxBtnN, int[] InOutR)
+        {
+            Button[] BtnList = new Button[MaxBtnN];
+            Region[] R = CreatePath(MaxBtnN, InOutR);
+            for (int i = 0; i < MaxBtnN; i++)
+            {
+                BtnList[i] = new Button
+                {
+                    Name = "Button" + i.ToString(),
+                    Width = InOutR[1] + 10,
+                    Height = InOutR[1] + 10,
+                    Region = R[i],
+                    //FlatStyle = FlatStyle.Flat,
+                    //Visible = false,
+                    //BackColor = Color.Transparent,
 
+                    //Location = new(Pt.X - InOutR[1] / 2, Pt.Y - InOutR[1] / 2)
+                    Location = new Point(0, 0)
+                };
+                // BtnList[i].FlatAppearance.MouseDownBackColor = Color.Black;
+                // BtnList[i].FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+            }
+            return BtnList;
+        }
         private Region CreatePath(int ith, int totalN, int[] InOutD)
         {
             Point CenterPt = new Point
@@ -99,7 +124,8 @@ namespace Tool_PieHotKey
                 X = InOutD[1] / 2 + 5,
                 Y = InOutD[1] / 2 + 5
             };
-            float Degree = 360 / totalN;
+            float Degree = 360F / totalN - 2;
+            float DegreeForTrans = 360F / totalN;
             double MathDegree1 = Math.PI / 180 * (Degree / 2);
             double MathDegree = Math.PI / 180 * (Degree);
             Rectangle rectIn = new Rectangle(CenterPt.X - InOutD[0] / 2, CenterPt.Y - InOutD[0] / 2, InOutD[0], InOutD[0]);
@@ -136,6 +162,7 @@ namespace Tool_PieHotKey
             #endregion
 
             Matrix Mymatrix = new Matrix();//旋轉圖形
+            Mymatrix.RotateAt(DegreeForTrans, new PointF(InOutD[1] / 2 + 5, InOutD[1] / 2 + 5));
             Region[] R = new Region[totalN];//建立要回傳的Region
             for (int i = 0; i < totalN; i++)
             {
@@ -146,7 +173,6 @@ namespace Tool_PieHotKey
                 }
                 else
                 {
-                    Mymatrix.RotateAt(Degree, new PointF(InOutD[1] / 2 + 5, InOutD[1] / 2 + 5));
                     path.Transform(Mymatrix);
                     R[i] = new Region();
                     R[i] = new Region(path);

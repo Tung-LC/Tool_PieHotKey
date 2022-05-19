@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Threading;
 using System.IO;
 using System.Collections;
+using System.Drawing.Drawing2D;
 
 namespace Tool_PieHotKey
 {
@@ -45,6 +46,7 @@ namespace Tool_PieHotKey
         bool IsShownChildrenHandle = false;
         bool IsBtnRelease = true;
         bool IsNeedToModifiedKeys = false;
+        bool IsShowAssistance = false;
         public List<ListViewData_To_DataInfo.DataInfo> AllDataInfo = new List<ListViewData_To_DataInfo.DataInfo>();
         public List<ListViewData_To_DataInfo.DataInfo> tempLocalDataInfo = new List<ListViewData_To_DataInfo.DataInfo>();
         public List<IntPtr> AllDataInfoHandle = new List<IntPtr>();
@@ -55,11 +57,14 @@ namespace Tool_PieHotKey
         private GlobalKeyboardHook _globalKeyboardHook;
         private GlobalMouseHook _globalMouseHook;
         FindAllWindows allwindowsdata;
+
+        int CBBX_LocalHandle_Index = -1;
         #endregion
 
         public Form1()
         {
             InitializeComponent();
+            this.Size = new Size(816, 489);
             #region Global參數的預先設置
             string AllDataStr = new Load_DataInfoStr_From_File(ThisAppPath + "\\Data\\AllDataInfo.txt").Returnstr;
             if (AllDataStr == null)//沒東西的話就全部設置為None 
@@ -132,6 +137,7 @@ namespace Tool_PieHotKey
             }
             //將按鈕設定欄位設定為None+None以防萬一
             new FillInListViewWithNoneKeys(LV_Global_SetupShown, (int)BtnN);
+            Panel1_Refresh();
         }
         private void TBX_LocalBtnN_TextChanged(object sender, EventArgs e)
         {
@@ -145,10 +151,11 @@ namespace Tool_PieHotKey
             for (int i = 0; i < BtnN; i++)
             {
                 //CBBX_LocalBtnSelect.Items.Add("按鈕" + i.ToString());
-                CBBX_LocalBtnSelect.Items.Add(i.ToString());
+                CBBX_LocalBtnSelect.Items.Add(i.ToString("00"));
             }
             //將按鈕設定欄位設定為None+None以防萬一
             new FillInListViewWithNoneKeys(LV_Local_SetupShown, (int)BtnN);
+            Panel1_Refresh();
         }
         private void TBX_Enter_ClearText(object sender, EventArgs e)
         {
@@ -302,11 +309,23 @@ namespace Tool_PieHotKey
             if (TBX_Local_ActiveBtn1.Text == "" && TBX_Local_ActiveBtn2.Text == "") { MessageBox.Show("請輸入啟動鈕"); return; }
             int[] InOutD2 = new int[ActiveBtnN] { Convert.ToInt32(TBX_LocalInD.Text), Convert.ToInt32(TBX_LocalOutD.Text) };
             //IntPtr hdwd = FindWindowByCaption(IntPtr.Zero, CBBX_LocalHandle.Text);
-            if (CBBX_LocalHandle.SelectedIndex == -1) { return; }
-            ListViewData_To_DataInfo lvd2 = new ListViewData_To_DataInfo(LV_Local_SetupShown, allwindowsdata.WindowList[CBBX_LocalHandle.SelectedIndex].Hwnd, CBBX_LocalHandle.Text, tmpstrLocal, RDBtn_Local_TriggerType_Trigger.Checked, RDOBtnLocal_ByMouseBtn.Checked, InOutD2, CKBX_LocalActImmed.Checked);
+            if (CBBX_LocalHandle_Index == -1) { return; }
+            ListViewData_To_DataInfo lvd2 = new ListViewData_To_DataInfo(LV_Local_SetupShown, allwindowsdata.WindowList[CBBX_LocalHandle_Index].Hwnd, CBBX_LocalHandle.Text, tmpstrLocal, RDBtn_Local_TriggerType_Trigger.Checked, RDOBtnLocal_ByMouseBtn.Checked, InOutD2, CKBX_LocalActImmed.Checked);
             //new Write_Txt_To_File(ThisAppPath + "\\Data\\" + lvd2.dataInfo.HandleName + "DataInfo.txt", lvd2.ToString());
             tempLocalDataInfo.Add(lvd2.dataInfo);
-            new PlotListView(LV_Local_HandleName, new string[1] { "視窗列" }, new int[1] { 85 }, new string[1] { lvd2.dataInfo.HandleName }, false);
+            CBBX_LocalHandle_Index = -1;
+            string[][] temptxt = new string[tempLocalDataInfo.Count][];
+            for (int i = 0; i < tempLocalDataInfo.Count; i++)
+            {
+                temptxt[i] = new string[2];
+                temptxt[i][1] = tempLocalDataInfo[i].HandleName;
+                temptxt[i][0] = i.ToString("00");
+            }
+            new PlotListView(LV_Local_HandleName, new string[2] { "編號", "視窗列" }, new int[2] { 0, 85 }, temptxt);
+        }
+        private void CBBX_LocalHandle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CBBX_LocalHandle_Index = CBBX_LocalHandle.SelectedIndex;
         }
         private void Btn_LocalDeleteData_Click(object sender, EventArgs e)
         {
@@ -535,7 +554,7 @@ namespace Tool_PieHotKey
             }
             for (int i = 0; i < ActiveBtnN; i++)
             {
-                if (e.MouseState == GlobalMouseHook.MouseState.XButtonDown && (ActiveKeys[i]==(Keys.XButton1) || ActiveKeys[i]==(Keys.XButton2)))
+                if (e.MouseState == GlobalMouseHook.MouseState.XButtonDown && (ActiveKeys[i] == (Keys.XButton1) || ActiveKeys[i] == (Keys.XButton2)))
                 {
                     if ((ActiveKeys[i] == Keys.XButton1 && e.MouseData.mouseData.ToString("X") == "10000") || (ActiveKeys[i] == Keys.XButton2 && e.MouseData.mouseData.ToString("X") == "20000"))
                     { IsKeyMousePress[i] = true; }
@@ -544,7 +563,7 @@ namespace Tool_PieHotKey
                 {
                     if (e.MouseState.ToString() == tempMouseBtnDown[i] || tempMouseBtnDown[i] == "None") { IsKeyMousePress[i] = true; }
                 }
-                if (e.MouseState == GlobalMouseHook.MouseState.XButtonUp && (ActiveKeys[i]==(Keys.XButton1) || ActiveKeys[i]==(Keys.XButton2)))
+                if (e.MouseState == GlobalMouseHook.MouseState.XButtonUp && (ActiveKeys[i] == (Keys.XButton1) || ActiveKeys[i] == (Keys.XButton2)))
                 {
                     if ((ActiveKeys[i] == Keys.XButton1 && e.MouseData.mouseData.ToString("X") == "10000") || (ActiveKeys[i] == Keys.XButton2 && e.MouseData.mouseData.ToString("X") == "20000"))
                     { IsKeyMousePress[i] = false; IsBtnRelease = true; }
@@ -559,7 +578,7 @@ namespace Tool_PieHotKey
             {
                 Fshow.VisibleFalse();
             }
-            Debug.WriteLine(IsKeyMousePress[0].ToString() + "\t" + IsKeyMousePress[1].ToString() + "\t" +"放開?"+ IsBtnRelease.ToString() + "\t" + Fshow.Visible.ToString()); ;
+            //Debug.WriteLine(IsKeyMousePress[0].ToString() + "\t" + IsKeyMousePress[1].ToString() + "\t" + "放開?" + IsBtnRelease.ToString() + "\t" + Fshow.Visible.ToString()); ;
             //Debug.WriteLine(IsKeyMousePress[0] + " " + IsKeyMousePress[1]);
             if (!IsKeyMousePress.Contains(false) && Fshow.Visible == false && IsBtnRelease) //如果IsKeyMousePress全部為true
             {
@@ -642,8 +661,10 @@ namespace Tool_PieHotKey
         {
             ListView tempListView = sender as ListView; //操作中的ListView
             int LVLHNindex = tempListView.SelectedIndices[0];
-            string[][] tempStr = new string[tempLocalDataInfo[LVLHNindex].KeysInfo.Length][];
-            for (int i = 0; i < tempLocalDataInfo[LVLHNindex].KeysInfo.Length; i++)
+            int tempBtnN = tempLocalDataInfo[LVLHNindex].KeysInfo.Length;
+            string[][] tempStr = new string[tempBtnN][];
+            TBX_LocalBtnN.Text = tempBtnN.ToString();            
+            for (int i = 0; i < tempBtnN; i++)
             {
                 tempStr[i] = new string[UsingBtnN + 1];
                 tempStr[i][0] = i.ToString("00");
@@ -654,9 +675,67 @@ namespace Tool_PieHotKey
             }
             new PlotListView(LV_Local_SetupShown, new string[UsingBtnN + 1] { "按鈕", "按鍵1", "按鍵2", "按鍵3" }, new int[UsingBtnN + 1] { 45, 70, 70, 70 }, tempStr);
         }
+        private void Panel1_Refresh()
+        {
+            panel1.Controls.Clear();
+            panel1.Paint += panel1_Paint;
+            panel1.Update();
+        }
         private void Btn_LocalHandleNameRefresh_Click(object sender, EventArgs e)
         {
             Refresh_LocalHandleSelect();
+        }
+        private void Btn_SetBtnAssist_Click(object sender, EventArgs e)
+        {
+            IsShowAssistance = true ^ IsShowAssistance;
+            if (IsShowAssistance)
+            {
+                this.Size = new Size(1155, 489);
+                Panel1_Refresh();
+            }
+            else
+            {
+                this.Size = new Size(816, 489);
+            }
+        }
+        private void AssistanceBtnClick(object sender, EventArgs e)//回傳點下的按鈕編號
+        {
+            int ReturnBtnIndex = Convert.ToInt32(((sender as Button).Name.ToLower().Replace("button", "").Trim()));
+            if (RDBtn_GlobalSetting.Checked)//設定global的
+            {
+                CBBX_GlobalBtnSelect.SelectedIndex = ReturnBtnIndex;
+            }
+            else
+            {
+                CBBX_LocalBtnSelect.SelectedIndex = ReturnBtnIndex;
+            }
+        }
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            panel1.Paint -= panel1_Paint;//移除 不要讓他一直重繪
+            int PanelBtnN;
+            if (RDBtn_GlobalSetting.Checked)
+            {
+                PanelBtnN = Convert.ToInt32(TBX_GlobalBtnN.Text);
+            }
+            else
+            {
+                PanelBtnN = Convert.ToInt32(TBX_LocalBtnN.Text);
+            }
+            Button[] PanelBtn = new PreCreatePieButton().CreateButton2(PanelBtnN, new int[2] { 150, 300 });
+            for (int i = 0; i < PanelBtnN; i++)
+            {
+                PanelBtn[i].MouseClick += AssistanceBtnClick;
+            }
+            //Region[] R = new CreateRegion(PanelBtnN, new int[2] { 150, 300 }).RegionsList;
+            panel1.Controls.AddRange((PanelBtn));
+
+        }
+        private void RDBtn_LocalSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Paint += panel1_Paint;
+            panel1.Update();
         }
     }
 }
