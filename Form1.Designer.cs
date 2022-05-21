@@ -109,6 +109,7 @@
             this.RDBtn_GlobalSetting = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
+            this.Btn_EditLocalDataInfo = new System.Windows.Forms.Button();
             this.GBX_GlobalActingByMouseOrKeyBoard.SuspendLayout();
             this.GBX_LocalActingByMouseOrKeyBoard.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -140,7 +141,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(174, 86);
+            this.label3.Location = new System.Drawing.Point(159, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 24);
             this.label3.TabIndex = 2;
@@ -194,7 +195,7 @@
             // TBX_Global_ActiveBtn2
             // 
             this.TBX_Global_ActiveBtn2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TBX_Global_ActiveBtn2.Location = new System.Drawing.Point(172, 164);
+            this.TBX_Global_ActiveBtn2.Location = new System.Drawing.Point(179, 164);
             this.TBX_Global_ActiveBtn2.Name = "TBX_Global_ActiveBtn2";
             this.TBX_Global_ActiveBtn2.Size = new System.Drawing.Size(88, 29);
             this.TBX_Global_ActiveBtn2.TabIndex = 5;
@@ -204,7 +205,7 @@
             // TBX_Global_ActiveBtn1
             // 
             this.TBX_Global_ActiveBtn1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TBX_Global_ActiveBtn1.Location = new System.Drawing.Point(172, 119);
+            this.TBX_Global_ActiveBtn1.Location = new System.Drawing.Point(179, 119);
             this.TBX_Global_ActiveBtn1.Name = "TBX_Global_ActiveBtn1";
             this.TBX_Global_ActiveBtn1.Size = new System.Drawing.Size(88, 29);
             this.TBX_Global_ActiveBtn1.TabIndex = 4;
@@ -286,7 +287,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(174, 50);
+            this.label6.Location = new System.Drawing.Point(159, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 24);
             this.label6.TabIndex = 5;
@@ -295,7 +296,7 @@
             // TBX_GlobalInD
             // 
             this.TBX_GlobalInD.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TBX_GlobalInD.Location = new System.Drawing.Point(285, 85);
+            this.TBX_GlobalInD.Location = new System.Drawing.Point(270, 85);
             this.TBX_GlobalInD.Name = "TBX_GlobalInD";
             this.TBX_GlobalInD.Size = new System.Drawing.Size(50, 29);
             this.TBX_GlobalInD.TabIndex = 7;
@@ -305,7 +306,7 @@
             // TBX_GlobalOutD
             // 
             this.TBX_GlobalOutD.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TBX_GlobalOutD.Location = new System.Drawing.Point(285, 45);
+            this.TBX_GlobalOutD.Location = new System.Drawing.Point(270, 45);
             this.TBX_GlobalOutD.Name = "TBX_GlobalOutD";
             this.TBX_GlobalOutD.Size = new System.Drawing.Size(50, 29);
             this.TBX_GlobalOutD.TabIndex = 6;
@@ -483,7 +484,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label8.Location = new System.Drawing.Point(174, 250);
+            this.label8.Location = new System.Drawing.Point(159, 250);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 24);
             this.label8.TabIndex = 55;
@@ -492,7 +493,7 @@
             // TBX_LocalInD
             // 
             this.TBX_LocalInD.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TBX_LocalInD.Location = new System.Drawing.Point(285, 286);
+            this.TBX_LocalInD.Location = new System.Drawing.Point(270, 286);
             this.TBX_LocalInD.Name = "TBX_LocalInD";
             this.TBX_LocalInD.Size = new System.Drawing.Size(50, 29);
             this.TBX_LocalInD.TabIndex = 63;
@@ -503,7 +504,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(174, 286);
+            this.label9.Location = new System.Drawing.Point(159, 286);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(105, 24);
             this.label9.TabIndex = 53;
@@ -512,7 +513,7 @@
             // TBX_LocalOutD
             // 
             this.TBX_LocalOutD.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TBX_LocalOutD.Location = new System.Drawing.Point(285, 247);
+            this.TBX_LocalOutD.Location = new System.Drawing.Point(270, 247);
             this.TBX_LocalOutD.Name = "TBX_LocalOutD";
             this.TBX_LocalOutD.Size = new System.Drawing.Size(50, 29);
             this.TBX_LocalOutD.TabIndex = 62;
@@ -618,7 +619,7 @@
             // TBX_Local_ActiveBtn2
             // 
             this.TBX_Local_ActiveBtn2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TBX_Local_ActiveBtn2.Location = new System.Drawing.Point(172, 365);
+            this.TBX_Local_ActiveBtn2.Location = new System.Drawing.Point(179, 365);
             this.TBX_Local_ActiveBtn2.Name = "TBX_Local_ActiveBtn2";
             this.TBX_Local_ActiveBtn2.Size = new System.Drawing.Size(88, 29);
             this.TBX_Local_ActiveBtn2.TabIndex = 70;
@@ -628,7 +629,7 @@
             // TBX_Local_ActiveBtn1
             // 
             this.TBX_Local_ActiveBtn1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.TBX_Local_ActiveBtn1.Location = new System.Drawing.Point(172, 320);
+            this.TBX_Local_ActiveBtn1.Location = new System.Drawing.Point(179, 320);
             this.TBX_Local_ActiveBtn1.Name = "TBX_Local_ActiveBtn1";
             this.TBX_Local_ActiveBtn1.Size = new System.Drawing.Size(88, 29);
             this.TBX_Local_ActiveBtn1.TabIndex = 69;
@@ -639,7 +640,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label15.Location = new System.Drawing.Point(202, 344);
+            this.label15.Location = new System.Drawing.Point(209, 344);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(24, 24);
             this.label15.TabIndex = 74;
@@ -709,7 +710,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label22.Location = new System.Drawing.Point(202, 143);
+            this.label22.Location = new System.Drawing.Point(209, 143);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(24, 24);
             this.label22.TabIndex = 77;
@@ -786,10 +787,10 @@
             // 
             // Btn_SaveLocalDataInfo
             // 
-            this.Btn_SaveLocalDataInfo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Btn_SaveLocalDataInfo.Location = new System.Drawing.Point(341, 395);
+            this.Btn_SaveLocalDataInfo.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Btn_SaveLocalDataInfo.Location = new System.Drawing.Point(328, 395);
             this.Btn_SaveLocalDataInfo.Name = "Btn_SaveLocalDataInfo";
-            this.Btn_SaveLocalDataInfo.Size = new System.Drawing.Size(69, 30);
+            this.Btn_SaveLocalDataInfo.Size = new System.Drawing.Size(48, 30);
             this.Btn_SaveLocalDataInfo.TabIndex = 81;
             this.Btn_SaveLocalDataInfo.Text = "記錄";
             this.Btn_SaveLocalDataInfo.UseVisualStyleBackColor = true;
@@ -810,9 +811,9 @@
             // 
             this.LV_Local_HandleName.Font = new System.Drawing.Font("微軟正黑體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LV_Local_HandleName.HideSelection = false;
-            this.LV_Local_HandleName.Location = new System.Drawing.Point(341, 288);
+            this.LV_Local_HandleName.Location = new System.Drawing.Point(328, 288);
             this.LV_Local_HandleName.Name = "LV_Local_HandleName";
-            this.LV_Local_HandleName.Size = new System.Drawing.Size(134, 106);
+            this.LV_Local_HandleName.Size = new System.Drawing.Size(146, 106);
             this.LV_Local_HandleName.TabIndex = 83;
             this.LV_Local_HandleName.UseCompatibleStateImageBehavior = false;
             this.LV_Local_HandleName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView_LocalHandleName_DoubleClick);
@@ -839,10 +840,10 @@
             // 
             // Btn_DeleteLocalDataInfo
             // 
-            this.Btn_DeleteLocalDataInfo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Btn_DeleteLocalDataInfo.Location = new System.Drawing.Point(406, 395);
+            this.Btn_DeleteLocalDataInfo.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Btn_DeleteLocalDataInfo.Location = new System.Drawing.Point(428, 395);
             this.Btn_DeleteLocalDataInfo.Name = "Btn_DeleteLocalDataInfo";
-            this.Btn_DeleteLocalDataInfo.Size = new System.Drawing.Size(69, 30);
+            this.Btn_DeleteLocalDataInfo.Size = new System.Drawing.Size(48, 30);
             this.Btn_DeleteLocalDataInfo.TabIndex = 86;
             this.Btn_DeleteLocalDataInfo.Text = "刪除";
             this.Btn_DeleteLocalDataInfo.UseVisualStyleBackColor = true;
@@ -852,25 +853,25 @@
             // 
             this.label25.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label25.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label25.Location = new System.Drawing.Point(339, 284);
+            this.label25.Location = new System.Drawing.Point(326, 284);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(137, 1);
+            this.label25.Size = new System.Drawing.Size(151, 1);
             this.label25.TabIndex = 87;
             // 
             // label26
             // 
             this.label26.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label26.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label26.Location = new System.Drawing.Point(339, 427);
+            this.label26.Location = new System.Drawing.Point(326, 427);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(137, 1);
+            this.label26.Size = new System.Drawing.Size(151, 1);
             this.label26.TabIndex = 88;
             // 
             // label27
             // 
             this.label27.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label27.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label27.Location = new System.Drawing.Point(338, 284);
+            this.label27.Location = new System.Drawing.Point(325, 284);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(1, 144);
             this.label27.TabIndex = 89;
@@ -879,7 +880,7 @@
             // 
             this.label28.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label28.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label28.Location = new System.Drawing.Point(476, 284);
+            this.label28.Location = new System.Drawing.Point(477, 284);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(1, 144);
             this.label28.TabIndex = 90;
@@ -957,11 +958,23 @@
             this.label29.Size = new System.Drawing.Size(320, 320);
             this.label29.TabIndex = 0;
             // 
+            // Btn_EditLocalDataInfo
+            // 
+            this.Btn_EditLocalDataInfo.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Btn_EditLocalDataInfo.Location = new System.Drawing.Point(378, 395);
+            this.Btn_EditLocalDataInfo.Name = "Btn_EditLocalDataInfo";
+            this.Btn_EditLocalDataInfo.Size = new System.Drawing.Size(48, 30);
+            this.Btn_EditLocalDataInfo.TabIndex = 95;
+            this.Btn_EditLocalDataInfo.Text = "編輯";
+            this.Btn_EditLocalDataInfo.UseVisualStyleBackColor = true;
+            this.Btn_EditLocalDataInfo.Click += new System.EventHandler(this.Btn_LocalEditData_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 450);
+            this.Controls.Add(this.Btn_EditLocalDataInfo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.Btn_SetBtnAssist);
@@ -1131,6 +1144,7 @@
         private System.Windows.Forms.RadioButton RDBtn_GlobalSetting;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button Btn_EditLocalDataInfo;
     }
 }
 

@@ -60,6 +60,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Question_Msgbox.Designer.cs" />
+    <Compile Include="Form_Recheck_Local_Handle_And_Name.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Recheck_Local_Handle_And_Name.Designer.cs">
+      <DependentUpon>Form_Recheck_Local_Handle_And_Name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_ShowPieButton.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Question_Msgbox.resx" />
+    <EmbeddedResource Include="Form_Recheck_Local_Handle_And_Name.resx">
+      <DependentUpon>Form_Recheck_Local_Handle_And_Name.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_ShowPieButton.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
