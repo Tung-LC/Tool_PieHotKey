@@ -22,14 +22,16 @@ namespace Tool_PieHotKey
                     tempListViewData[i][j] = templistviewitem.SubItems[j].Text; //提取資料
                 }
             }//第一個subitem為button number 第二第三為Keycode
-            DataInfo tempDataInfo = new DataInfo();
-            tempDataInfo.Handle = Hwnd;
-            tempDataInfo.HandleName = HandleName;
-            tempDataInfo.ActiveKey = new Keys[ActiveBtn.Length];
-            tempDataInfo.IsTypeTrigger = IsTypeTrigger;
-            tempDataInfo.IsTriggerByMouse = Istriggerbymouse;
-            tempDataInfo.InOutD = InOutD;
-            tempDataInfo.IsActiveImmed = IsActImmed;
+            DataInfo tempDataInfo = new DataInfo
+            {
+                Handle = Hwnd,
+                HandleName = HandleName,
+                ActiveKey = new Keys[ActiveBtn.Length],
+                IsTypeTrigger = IsTypeTrigger,
+                IsTriggerByMouse = Istriggerbymouse,
+                InOutD = InOutD,
+                IsActiveImmed = IsActImmed
+            };
             for (int i = 0; i < ActiveBtn.Length; i++) //啟動按鈕，在這個條件下全部都一樣
             {
                 try

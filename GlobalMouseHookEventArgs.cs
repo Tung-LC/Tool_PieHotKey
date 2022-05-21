@@ -174,55 +174,40 @@ namespace Tool_PieHotKey
         public enum MouseState
         {
             //MouseMove = 0x0200,
-            MouseWheel = 0x020A,
+            //MouseWheel = 0x020A,
             LButtonDown = 0x0201,
             LButtonUp = 0x0202,
-            LButtonDblClk = 0x0203,
+            //LButtonDblClk = 0x0203,
             RButtonDown = 0x0204,
             RButtonUp = 0x0205,
-            RButtonDblClk = 0x0206,
+            //RButtonDblClk = 0x0206,
             MButtonDown = 0x0207,
             MButtonUp = 0x0208,
-            MButtonDblClk = 0x0209,
+            //MButtonDblClk = 0x0209,
             XButtonDown = 0x020B,
             XButtonUp = 0x020C
         }
 
         // EDT: Replaced VkSnapshot(int) with RegisteredKeys(Keys[])
         public static Keys[] RegisteredKeys;
-        const int KfAltdown = 0x2000;
-        public const int LlkhfAltdown = (KfAltdown >> 8);
+        //const int KfAltdown = 0x2000;
+        //public const int LlkhfAltdown = (KfAltdown >> 8);
         public IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam)
         {
-
-
             bool fEatKeyStroke = false;
-            //Debug.WriteLine(wParam.ToInt32());
             var wparamTyped = wParam.ToInt32();
             if (Enum.IsDefined(typeof(MouseState), wparamTyped))
             {
                 object o = Marshal.PtrToStructure(lParam, typeof(LowLevelMouseInputEvent));
                 LowLevelMouseInputEvent p = (LowLevelMouseInputEvent)o;
-                //Debug.WriteLine(p.pt.x + " ," + p.pt.y);
-                //Debug.WriteLine(p.pt.x + " " + p.pt.y +" "+ p.mouseData.ToString());
-                //Debug.WriteLine(wParam.ToString("X"));
                 var eventArguments = new GlobalMouseHookEventArgs(p, (MouseState)wparamTyped);
-                //Debug.WriteLine(p.flags);
-                // EDT: Removed the comparison-logic from the usage-area so the user does not need to mess around with it.
-                // Either the incoming key has to be part of RegisteredKeys (see constructor on top) or RegisterdKeys
-                // has to be null for the event to get fired.
-
-                //var key = (Keys)p.mouseData;
-                //if (RegisteredKeys == null || RegisteredKeys.Contains(key))
-                {
-                    EventHandler<GlobalMouseHookEventArgs> handler = MousePressed;
-                    handler?.Invoke(this, eventArguments);
-
-                    fEatKeyStroke = eventArguments.Handled;
-                }
+                EventHandler<GlobalMouseHookEventArgs> handler = MousePressed;
+                handler?.Invoke(this, eventArguments);
+                fEatKeyStroke = eventArguments.Handled;
             }
             try
             {
+                //Thread.Sleep(100);
                 return fEatKeyStroke ? (IntPtr)1 : CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
             }
             catch (Exception)

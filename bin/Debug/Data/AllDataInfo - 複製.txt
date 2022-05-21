@@ -1,0 +1,31 @@
+HandleName: Global
+Handle: 0
+ActiveKeys Number: 2
+ActiveKeys: Scroll; None;
+KeysInfo Number: 4
+KeyCode: None; None; None;
+KeyCode: LWin; D; None;
+KeyCode: None; None; None;
+KeyCode: None; None; None;
+InOutD: 150; 250;
+IsTypeTrigger: True
+IsTriggerByMouse: False
+IsActiveImmed: True
+------------------------EndSection------------------------
+HandleName: Microsoft? Edge
+Handle: 1034A
+ActiveKeys Number: 2
+ActiveKeys: Scroll; None;
+KeysInfo Number: 8
+KeyCode: ControlKey; T; None;
+KeyCode: LWin; D; None;
+KeyCode: ControlKey; Tab; None;
+KeyCode: None; None; None;
+KeyCode: ControlKey; W; None;
+KeyCode: None; None; None;
+KeyCode: ControlKey; ShiftKey; Tab;
+KeyCode: ControlKey; ShiftKey; T;
+InOutD: 75; 150;
+IsTypeTrigger: True
+IsTriggerByMouse: False
+IsActiveImmed: True

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Tool_PieHotKey
 {
@@ -14,7 +15,6 @@ namespace Tool_PieHotKey
     {
         [DllImport("user32.dll", SetLastError = true)]
         public static extern uint SendInput(uint nInput, INPUT[] pInput, int cbSize);
-
         [DllImport("user32.dll")]
         private static extern UIntPtr GetMessageExtraInfo();
         [DllImport("user32.dll")]
@@ -73,6 +73,8 @@ namespace Tool_PieHotKey
             SendInput((uint)inputs.Length, inputs, INPUT.size);
         }
         */
+        /* 
+         * 由於一次傳遞所有的按鈕，因此導致某些程式會沒感應到，因此修改寫法讓他變成可以有sleep(5)
         public SentInputData(IntPtr Hwnd, Keys[] InputKey, bool IsInputByKeyBoard)
         {
 
@@ -126,7 +128,65 @@ namespace Tool_PieHotKey
             SetForegroundWindow(Hwnd);
             SendInput((uint)inputs.Length, inputs, INPUT.size);
         }
+        */
+        public SentInputData(IntPtr Hwnd, Keys[] InputKey, bool IsInputByKeyBoard)
+        {
 
+            int InputKeyLength = InputKey.Length;
+            if (InputKey[0] == Keys.None && InputKey[1] == Keys.None && InputKey[2] == Keys.None) { return; }
+            //INPUT[] inputs = new INPUT[InputKeyLength * 2];
+            //try
+            {
+                SetForegroundWindow(Hwnd);
+                if (IsInputByKeyBoard)//模擬鍵盤輸入
+                {
+                    for (int i = 0; i < InputKeyLength; i++)
+                    {
+                        INPUT[] inputs = new INPUT[1];
+                        inputs[0] = new INPUT()
+                        {
+                            type = (uint)InputType.Keyboard,
+                            union = new InputUnion()
+                            {
+                                ki = new KEYBDINPUT()
+                                {
+                                    wVk = (ushort)InputKey[i],
+                                    //(ushort)Convert.ToInt16(InputKey[0].ToString("X"),16)
+                                    //wScan = (ScanCodeShort)System.Enum.Parse(typeof(ScanCodeShort), InputKeyStr[i]),
+                                    dwFlags = KeyEventF.KeyDown,
+                                    dwExtraInfo = GetMessageExtraInfo()
+                                }
+                            }
+                        };
+                        SendInput(1, inputs, INPUT.size);Thread.Sleep(5);
+                    }
+                    for (int i = InputKeyLength; i < InputKeyLength * 2; i++)
+                    {
+                        INPUT[] inputs = new INPUT[1];
+                        inputs[0] = new INPUT()
+                        {
+                            type = (uint)InputType.Keyboard,
+                            union = new InputUnion()
+                            {
+                                ki = new KEYBDINPUT()
+                                {
+                                    //wVk = (VirtualKeyShort)System.Enum.Parse(typeof(VirtualKeyShort), InputKeyStr[i - InputKeyLength]),
+                                    wVk = (ushort)InputKey[i - InputKeyLength],
+                                    //wScan = (ScanCodeShort)System.Enum.Parse(typeof(ScanCodeShort), InputKeyStr[i - InputKeyLength]),
+                                    dwFlags = KeyEventF.KeyUp,
+                                    dwExtraInfo = GetMessageExtraInfo()
+                                }
+                            }
+                        };
+                        SendInput(1, inputs, INPUT.size); Thread.Sleep(5);
+                    }
+                }
+            }
+            //catch (Exception) { MessageBox.Show("設定按鍵輸出失敗"); return; }
+            Debug.WriteLine("進入SentMsg");
+            //SetForegroundWindow(Hwnd);
+            //SendInput((uint)inputs.Length, inputs, INPUT.size);
+        }
 
     }
     [StructLayout(LayoutKind.Sequential)]

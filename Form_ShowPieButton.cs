@@ -39,21 +39,7 @@ namespace Tool_PieHotKey
             this.TransparencyKey = Color.Black;
             this.Visible = false;
             ButtonsName = ButtonsList.Select(x => x.Name).ToArray();
-            if (IsImmedAct)//是否即動，是的話就使用Hover 否的話就使用Click
-            {
-                for (int i = 0; i < MaxBtnN; i++)
-                {
-                    //ButtonsList[i].MouseHover += ButtonHoverEvent;
-                    ButtonsList[i].MouseMove += ButtonMoveEvent;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < MaxBtnN; i++)
-                {
-                    ButtonsList[i].MouseClick += ButtonClickEvent;
-                }
-            }
+           
             //_globalKeyboardHook = new GlobalKeyboardHook();
             //_globalMouseHook = new GlobalMouseHook();
         }
@@ -117,7 +103,48 @@ namespace Tool_PieHotKey
             {
                 globalMousehook2.MousePressed += Form_ShowPieButton_MouseClick;
             }
+            AddRemove_IsImmedActEvent(true);
 
+        }
+        private void AddRemove_IsImmedActEvent(bool IsAdd)
+        {
+            //Debug.WriteLine("INADD" + IsImmedAct.ToString());
+            if (IsAdd)
+            {
+                if (IsImmedAct)//是否即動，是的話就使用Hover 否的話就使用Click
+                {
+                    for (int i = 0; i < MaxBtnN; i++)
+                    {
+                        //ButtonsList[i].MouseHover += ButtonHoverEvent;
+                        ButtonsList[i].MouseMove += ButtonMoveEvent;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < MaxBtnN; i++)
+                    {
+                        ButtonsList[i].MouseClick += ButtonClickEvent;
+                    }
+                }
+            }
+            else
+            {
+                if (IsImmedAct)//是否即動，是的話就使用Hover 否的話就使用Click
+                {
+                    for (int i = 0; i < MaxBtnN; i++)
+                    {
+                        //ButtonsList[i].MouseHover += ButtonHoverEvent;
+                        ButtonsList[i].MouseMove -= ButtonMoveEvent;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < MaxBtnN; i++)
+                    {
+                        ButtonsList[i].MouseClick -= ButtonClickEvent;
+                    }
+                }
+            }
         }
         /// <summary>
         /// 當滑鼠移動到按鈕上進行的動作，將有動作之滑鼠名稱紀錄，若有其他的則持續覆蓋掉
@@ -160,7 +187,7 @@ namespace Tool_PieHotKey
             {
                 globalMousehook2.MousePressed -= Form_ShowPieButton_MouseClick;
             }
-            
+            AddRemove_IsImmedActEvent(false);
             this.Visible = false;
         }
 

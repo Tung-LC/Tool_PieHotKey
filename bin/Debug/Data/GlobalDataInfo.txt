@@ -1,0 +1,13 @@
+HandleName: Global
+Handle: 0
+ActiveKeys Number: 2
+ActiveKeys: MButton; None;
+KeysInfo Number: 4
+KeyCode: Menu; Right; None;
+KeyCode: LWin; D; None;
+KeyCode: Menu; Left; None;
+KeyCode: ControlKey; ShiftKey; T;
+InOutD: 150; 250;
+IsTypeTrigger: False
+IsTriggerByMouse: True
+IsActiveImmed: True

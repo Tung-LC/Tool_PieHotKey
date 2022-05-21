@@ -61,7 +61,11 @@ namespace Tool_PieHotKey
                 string[] strData = strDataAll[i].Replace("\r\n", "@").Trim().Split('@');
                 strData = strData.Where(x => x != "").ToArray();
                 _datainfo.HandleName = ReturnStrAfterSymbol(strData[0], ':').Trim();
-                _datainfo.Handle = (IntPtr)Convert.ToInt32(ReturnStrAfterSymbol(strData[1], ':').Trim(), 16);
+                try
+                {
+                    _datainfo.Handle = (IntPtr)Convert.ToInt32(ReturnStrAfterSymbol(strData[1], ':').Trim(), 16);
+                }
+                catch { MessageBox.Show(_datainfo.HandleName + "的Handle錯誤"); }
                 AllDataInfoHandle.Add(_datainfo.Handle);
                 AllDataInfoHandleName.Add(_datainfo.HandleName);
                 int ActiveKeyN = Convert.ToInt32(ReturnStrAfterSymbol(strData[2], ':').Trim());
