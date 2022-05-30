@@ -15,7 +15,7 @@ IsTriggerByMouse: False
 IsActiveImmed: True
 ------------------------EndSection------------------------
 HandleName: BlueStacks
-Handle: 160B06
+Handle: C0D12
 ActiveKeys Number: 2
 ActiveKeys: Scroll; None;
 KeysInfo Number: 4
@@ -29,7 +29,7 @@ IsTriggerByMouse: False
 IsActiveImmed: True
 ------------------------EndSection------------------------
 HandleName: Microsoft? Edge Beta
-Handle: 2085A
+Handle: 205E8
 ActiveKeys Number: 2
 ActiveKeys: Scroll; None;
 KeysInfo Number: 8
@@ -47,7 +47,7 @@ IsTriggerByMouse: False
 IsActiveImmed: True
 ------------------------EndSection------------------------
 HandleName: Microsoft? Edge
-Handle: 20830
+Handle: 3053C
 ActiveKeys Number: 2
 ActiveKeys: Scroll; None;
 KeysInfo Number: 8
@@ -63,3 +63,17 @@ InOutD: 80; 160;
 IsTypeTrigger: True
 IsTriggerByMouse: False
 IsActiveImmed: True
+------------------------EndSection------------------------
+HandleName: Fantasy Frontier Online
+Handle: 2D40AEE
+ActiveKeys Number: 2
+ActiveKeys: Scroll; None;
+KeysInfo Number: 4
+KeyCode: None; None; None;
+KeyCode: None; None; None;
+KeyCode: None; None; None;
+KeyCode: None; None; None;
+InOutD: 75; 150;
+IsTypeTrigger: True
+IsTriggerByMouse: False
+IsActiveImmed: False

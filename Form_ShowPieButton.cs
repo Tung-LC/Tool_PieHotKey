@@ -39,7 +39,7 @@ namespace Tool_PieHotKey
             this.TransparencyKey = Color.Black;
             this.Visible = false;
             ButtonsName = ButtonsList.Select(x => x.Name).ToArray();
-           
+
             //_globalKeyboardHook = new GlobalKeyboardHook();
             //_globalMouseHook = new GlobalMouseHook();
         }
@@ -64,7 +64,7 @@ namespace Tool_PieHotKey
         private static GlobalKeyboardHook globalKeyBoardhook2;
         private static GlobalMouseHook globalMousehook2;
         public bool[] IsKeyMousePress;
-        public bool IsBtnRelease = true; 
+        public bool IsBtnRelease = true;
         //public MouseButtons[] ActiveMouseButton { get; private set; }
         /// <summary>
         /// 顯示出Pie狀按鈕並回傳啟動值，按下滑鼠右鍵則立刻停止
@@ -81,7 +81,7 @@ namespace Tool_PieHotKey
             ActiveButtonName = null;
             temp_BtnN = BtnN;
             ActiveKeys = activeKeys;
-            IsKeyMousePress = new bool[Form1.ActiveBtnN] { true,true };
+            IsKeyMousePress = new bool[Form1.ActiveBtnN] { true, true };
             IsBtnRelease = false;
             for (int i = 0; i < BtnN; i++)
             {
@@ -102,6 +102,7 @@ namespace Tool_PieHotKey
             else
             {
                 globalMousehook2.MousePressed += Form_ShowPieButton_MouseClick;
+                globalKeyBoardhook2.KeyboardPressed += Form_ShowPieButton_KeyBoardPress;
             }
             AddRemove_IsImmedActEvent(true);
 
@@ -229,7 +230,7 @@ namespace Tool_PieHotKey
                 {
                     ToBeClose = true;
                     IsKeyMousePress[i] = false;
-                    IsBtnRelease =true;
+                    IsBtnRelease = true;
                     break;
                 }
 
@@ -252,6 +253,19 @@ namespace Tool_PieHotKey
                 this.Hide();
             }
 
+        }
+        private void Form_ShowPieButton_KeyBoardPress(object sender, GlobalKeyboardHookEventArgs e)
+        {
+            if (e.KeyboardState == GlobalKeyboardHook.KeyboardState.KeyDown)
+            {
+                if (ActiveKeys.Contains(e.KeyboardData.Key))
+                {
+                    ActiveButtonIndex = -1;
+                    ActiveButtonName = null;
+                    VisibleFalse();
+                    this.Hide();
+                }
+            }
         }
     }
 }
