@@ -15,12 +15,14 @@ IsTriggerByMouse: False
 IsActiveImmed: True
 ------------------------EndSection------------------------
 HandleName: BlueStacks
-Handle: C0D12
+Handle: 160B06
 ActiveKeys Number: 2
 ActiveKeys: Scroll; None;
-KeysInfo Number: 4
-KeyCode: ControlKey; ShiftKey; S;
-KeyCode: LWin; D; None;
+KeysInfo Number: 6
+KeyCode: None; None; None;
+KeyCode: LWin; Tab; Tab;
+KeyCode: None; None; None;
+KeyCode: ControlKey; ShiftKey; D2;
 KeyCode: None; None; None;
 KeyCode: None; None; None;
 InOutD: 75; 150;
@@ -64,16 +66,18 @@ IsTypeTrigger: True
 IsTriggerByMouse: False
 IsActiveImmed: True
 ------------------------EndSection------------------------
-HandleName: Fantasy Frontier Online
-Handle: 2D40AEE
+HandleName: Fantasy Frontier Online                         
+Handle: 281A1A
 ActiveKeys Number: 2
 ActiveKeys: Scroll; None;
-KeysInfo Number: 4
+KeysInfo Number: 6
+KeyCode: R; None; None;
+KeyCode: LWin; Tab; Tab;
 KeyCode: None; None; None;
+KeyCode: ControlKey; ShiftKey; D2;
 KeyCode: None; None; None;
-KeyCode: None; None; None;
-KeyCode: None; None; None;
+KeyCode: ShiftKey; D5; None;
 InOutD: 75; 150;
 IsTypeTrigger: True
 IsTriggerByMouse: False
-IsActiveImmed: False
+IsActiveImmed: True
